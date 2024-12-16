@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech-to-Speech Translation</title>
+</head>
+<body>
+    <h1>Speech-to-Speech Translation</h1>
+    <form action="/translate" method="post" enctype="multipart/form-data">
+        <label for="video">Upload Video:</label>
+        <input type="file" name="video" required>
+        <br><br>
+        <label for="src_language">Source Language:</label>
+        <input type="text" name="src_language" placeholder="en" required>
+        <br><br>
+        <label for="dest_language">Destination Language:</label>
+        <input type="text" name="dest_language" placeholder="te" required>
+        <br><br>
+        <button type="submit">Translate</button>
+    </form>
+</body>
+</html>
