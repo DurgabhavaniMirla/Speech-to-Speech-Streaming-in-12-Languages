@@ -3,15 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Translated Video</title>
+    <title>Translated Result</title>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            padding: 20px;
+            background-color: #f4f4f9;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Prevents page scrolling */
+        }
+        h1 { margin-bottom: 10px; font-size: 1.5rem; }
+        .video-container { 
+            width: 100%; 
+            max-width: 800px; 
+            /* This is the key: it limits height to 70% of the screen height */
+            max-height: 70vh; 
+        }
+        video { 
+            width: 100%; 
+            max-height: 70vh; /* Ensures the video itself doesn't exceed screen height */
+            border-radius: 10px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+            background-color: #000;
+        }
+        .controls { margin-top: 15px; }
+        a { color: #007bff; text-decoration: none; font-weight: bold; }
+    </style>
 </head>
 <body>
-    <h1>Translated Video</h1>
-    <video controls width="600">
-        <source src="{{ url_for('send_video', filename=filename) }}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <br><br>
-    <a href="/">Go back to upload page</a>
+    <h1>Your Translated Video</h1>
+    <div class="video-container">
+        <video controls autoplay>
+            <source src="{{ url_for('send_video', filename=filename) }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="controls">
+        <a href="/">← Translate another video</a>
+    </div>
 </body>
 </html>
